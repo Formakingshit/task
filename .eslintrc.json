@@ -1,0 +1,22 @@
+{
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "airbnb-base"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint",
+      "fix": true
+    },
+    "rules": {
+      "class-methods-use-this":"off",
+      "no-param-reassign":"off",
+      "linebreak-style":"off",
+      "prefer-destructuring":"off",
+      "no-await-in-loop": "off"
+    },
+    "globals": {
+      "use": true
+    }
+  }
