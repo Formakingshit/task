@@ -6,7 +6,7 @@ class FilmSchema extends Schema {
     this.create('films', (table) => {
       table.increments();
       table.string('title', 254).notNullable();
-      table.dateTime('year');
+      table.integer('year');
       table.string('format', 50).notNullable();
       table.timestamps();
     });

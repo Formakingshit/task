@@ -1,7 +1,5 @@
-'use strict'
-
 /** @type {import('@adonisjs/framework/src/Env')} */
-const Env = use('Env')
+const Env = use('Env');
 
 module.exports = {
 
@@ -10,7 +8,7 @@ module.exports = {
   | Application Name
   |--------------------------------------------------------------------------
   |
-  | This value is the name of your application and can be used when you
+  | This value is the name of your application and can used when you
   | need to place the application's name in a email, view or
   | other location.
   |
@@ -35,7 +33,7 @@ module.exports = {
     | Allow Method Spoofing
     |--------------------------------------------------------------------------
     |
-    | Method spoofing allows you to make requests by spoofing the http verb.
+    | Method spoofing allows to make requests by spoofing the http verb.
     | Which means you can make a GET request but instruct the server to
     | treat as a POST or PUT request. If you want this feature, set the
     | below value to true.
@@ -48,10 +46,10 @@ module.exports = {
     | Trust Proxy
     |--------------------------------------------------------------------------
     |
-    | Trust proxy defines whether X-Forwarded-* headers should be trusted or not.
+    | Trust proxy defines whether X-Forwaded-* headers should be trusted or not.
     | When your application is behind a proxy server like nginx, these values
     | are set automatically and should be trusted. Apart from setting it
-    | to true or false Adonis supports a handful of ways to allow proxy
+    | to true or false Adonis supports handful or ways to allow proxy
     | values. Read documentation for that.
     |
     */
@@ -62,7 +60,7 @@ module.exports = {
     | Subdomains
     |--------------------------------------------------------------------------
     |
-    | Offset to be used for returning subdomains for a given request. For
+    | Offset to be used for returning subdomains for a given request.For
     | majority of applications it will be 2, until you have nested
     | sudomains.
     | cheatsheet.adonisjs.com      - offset - 2
@@ -88,13 +86,13 @@ module.exports = {
     | Etag
     |--------------------------------------------------------------------------
     |
-    | Set etag on all HTTP responses. In order to disable for selected routes,
+    | Set etag on all HTTP response. In order to disable for selected routes,
     | you can call the `response.send` with an options object as follows.
     |
     | response.send('Hello', { ignoreEtag: true })
     |
     */
-    etag: false
+    etag: false,
   },
 
   views: {
@@ -107,7 +105,7 @@ module.exports = {
     | production to optimize view loading time.
     |
     */
-    cache: Env.get('CACHE_VIEWS', true)
+    cache: Env.get('CACHE_VIEWS', true),
   },
 
   static: {
@@ -116,9 +114,9 @@ module.exports = {
     | Dot Files
     |--------------------------------------------------------------------------
     |
-    | Define how to treat dot files when trying to serve static resources.
+    | Define how to treat dot files when trying to server static resources.
     | By default it is set to ignore, which will pretend that dotfiles
-    | do not exist.
+    | does not exists.
     |
     | Can be one of the following
     | ignore, deny, allow
@@ -146,7 +144,7 @@ module.exports = {
     | that exists will be served. Example: ['html', 'htm'].
     |
     */
-    extensions: false
+    extensions: false,
   },
 
   locales: {
@@ -173,7 +171,7 @@ module.exports = {
     | based on HTTP headers/query string.
     |
     */
-    locale: 'en'
+    locale: 'en',
   },
 
   logger: {
@@ -202,7 +200,7 @@ module.exports = {
     console: {
       driver: 'console',
       name: 'adonis-app',
-      level: 'info'
+      level: 'info',
     },
 
     /*
@@ -220,8 +218,8 @@ module.exports = {
       driver: 'file',
       name: 'adonis-app',
       filename: 'adonis.log',
-      level: 'info'
-    }
+      level: 'info',
+    },
   },
 
   /*
@@ -238,6 +236,6 @@ module.exports = {
     httpOnly: true,
     sameSite: false,
     path: '/',
-    maxAge: 7200
-  }
-}
+    maxAge: 7200,
+  },
+};
