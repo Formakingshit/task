@@ -1,0 +1,201 @@
+{
+	"info": {
+		"_postman_id": "32647fff-89bc-4878-b732-fd3f66e92aba",
+		"name": "Task",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "AllRole_AllFunctional",
+			"item": [
+				{
+					"name": "Film",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ae44d267-35fe-4639-ab52-f6ca323fda9b",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"dfs\",\n\t\"year\": \"2616\",\n\t\"format\": \"some\",\n\t\"actors\": [\n    \t\"someIndoor Sample11\",\n    \t\"someIndoor Sample12\",\n    \t\"someIndoor Sample13\"\n    ]\n}"
+						},
+						"url": {
+							"raw": "{{api_url}}/film",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"film"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Film / id",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{api_url}}/film/30",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"film",
+								"30"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Film / id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{api_url}}/film/2",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"film",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Film",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{api_url}}/film?",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"film"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "dfs",
+									"disabled": true
+								},
+								{
+									"key": "order_by",
+									"value": "title",
+									"disabled": true
+								},
+								{
+									"key": "sorted_by",
+									"value": "asc",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "per_page",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
