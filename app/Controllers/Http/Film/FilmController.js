@@ -1,4 +1,6 @@
 const Film = use('App/Models/Film');
+const ActorFilm = use('App/Models/ActorFilm');
+const Actor = use('App/Models/Actor');
 
 class AdminController {
   async index({ request, response }) {
@@ -9,7 +11,7 @@ class AdminController {
       'page',
     ]);
 
-    const query = Film.query();
+    const query = Film.query().with('actorFilms.actors');
 
     if (data.order_by) {
       query.orderBy(data.order_by, data.sorted_by);
@@ -26,6 +28,7 @@ class AdminController {
 
   async show({ response, params }) {
     const film = await Film.findByOrFail('id', params.id);
+    await film.load('actorFilms.actors');
 
     return response.send({ film }, 'User successfully registered in system');
   }
@@ -39,7 +42,28 @@ class AdminController {
 
     const film = await Film.create(data);
 
-    return response.send({ film }, 'User successfully registered in system');
+
+    const dataActors = request.only('actors');
+
+    // TODO (I made it at 5 a.m)
+    for (let i = 0; i < dataActors.actors.length; i += 1) {
+      dataActors.actors[i] = dataActors.actors[i].split(' ');
+
+      const actor = (
+        await Actor.findOrCreate(
+          { name: dataActors.actors[i][0], surname: dataActors.actors[i][1] },
+          { name: dataActors.actors[i][0], surname: dataActors.actors[i][1] },
+        )
+      ).toJSON();
+
+      const actorFilm = {};
+      actorFilm.film_id = film.id;
+      actorFilm.actor_id = actor.id;
+      await ActorFilm.create(actorFilm);
+    }
+
+    await film.load('actorFilms.actors');
+    return response.send({ film }, 'Fild successfully added to system');
   }
 
   async delete({ response, params }) {

@@ -5,8 +5,10 @@ class ActorFilmSchema extends Schema {
   up() {
     this.create('actor_films', (table) => {
       table.increments();
-      table.integer('film_id').unsigned().references('id').inTable('films');
-      table.integer('actor_id').unsigned().references('id').inTable('actors');
+      table.integer('film_id').unsigned().references('id').inTable('films')
+        .onDelete('cascade');
+      table.integer('actor_id').unsigned().references('id').inTable('actors')
+        .onDelete('cascade');
       table.timestamps();
     });
   }
